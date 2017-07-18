@@ -22,6 +22,19 @@ export default class Bst {
         return val;
       }
     }
-    else throw 'Bst.insert: unexpected value:' + val;
+    else throw 'Bst.insert: unexpected value: ' + val;
+  }
+
+  match(val){
+    if(val === this.val) return true;
+    else if(val < this.val){
+      if(this.left) return this.left.match(val);
+      else return false;
+    }
+    else if(val > this.val){
+      if(this.right) return this.right.match(val);
+      else return false;
+    }
+    else throw 'Bst.match: unexpected value: ' + val;
   }
 }
