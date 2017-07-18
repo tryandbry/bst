@@ -1,7 +1,6 @@
 import {expect} from 'chai';
 import Bst from './bst';
 
-
 describe('binary search tree',function(){
   let myBst;
 
@@ -44,9 +43,11 @@ describe('binary search tree',function(){
     });
 
     it('matches values',function(){
-      expect(myBst.match(5)).to.be.true;
-      expect(myBst.match(12)).to.be.true;
-      expect(myBst.match(25)).to.be.false;
+      expect(myBst.match(5)).to.be.an.instanceOf(Bst);
+      expect(myBst.match(5).val).to.equal(5);
+      expect(myBst.match(12)).to.be.an.instanceOf(Bst);
+      expect(myBst.match(12).val).to.equal(12);
+      expect(myBst.match(25)).to.be.null;
     });
   });
 });

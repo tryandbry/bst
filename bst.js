@@ -26,14 +26,14 @@ export default class Bst {
   }
 
   match(val){
-    if(val === this.val) return true;
+    if(val === this.val) return this;
     else if(val < this.val){
       if(this.left) return this.left.match(val);
-      else return false;
+      else return null;
     }
     else if(val > this.val){
       if(this.right) return this.right.match(val);
-      else return false;
+      else return null;
     }
     else throw 'Bst.match: unexpected value: ' + val;
   }
