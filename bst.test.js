@@ -1,5 +1,6 @@
 import {expect} from 'chai';
 import Bst from './bst';
+import {spy} from 'sinon';
 
 describe('binary search tree',function(){
   let myBst;
@@ -43,10 +44,11 @@ describe('binary search tree',function(){
   });
 
   describe('Bst.match',function(){
-    let input = [5,3,8,1,12,2,6,50,10,9];
-
     beforeEach('reset myBst array',function(){
+      let input = [5,3,8,1,12,2,6,50,10,9];
+
       myBst = new Bst(input.shift());
+
       input.forEach(e => {
         myBst.insert(e);
       });
@@ -58,6 +60,22 @@ describe('binary search tree',function(){
       expect(myBst.match(12)).to.be.an.instanceOf(Bst);
       expect(myBst.match(12).val).to.equal(12);
       expect(myBst.match(25)).to.be.null;
+    });
+
+    it('iterates the expected number of times',function(){
+      let mySpy = spy(Bst.prototype,"match");
+
+      myBst.match(5);
+      expect(mySpy.callCount).to.be.below(2);
+      mySpy.reset();
+
+      myBst.match(9);
+      expect(mySpy.callCount).to.be.below(6);
+      mySpy.reset();
+
+      myBst.match(6);
+      expect(mySpy.callCount).to.be.below(4);
+
     });
   });
 });
