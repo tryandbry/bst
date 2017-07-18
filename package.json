@@ -2,12 +2,16 @@
   "name": "bst",
   "version": "1.0.0",
   "description": "Binary Search Tree",
-  "main": "index.js",
+  "main": "bst.js",
   "scripts": {
     "test": "mocha --compilers js:babel-register --watch-extensions js *.test.js"
   },
   "author": "Bryan Kao",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tryandbry/bst"
+  },
   "dependencies": {
     "babel": "^6.23.0",
     "babel-preset-es2015": "^6.24.1",
