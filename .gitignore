@@ -1,3 +1,6 @@
-*.swp, *.swo
-node_modules
+# vim swap files
+*.swp
+*.swo
 
+# node modules directory
+node_modules
