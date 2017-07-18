@@ -4,12 +4,22 @@ import Bst from './bst';
 describe('binary search tree',function(){
   let myBst;
 
-  describe('Bst.insert',function(){
+  describe('structure',function(){
     it('has the expected structure',function(){
       myBst = new Bst();
       expect(myBst).to.have.keys('left','right','val');
     });
 
+    it('has the expected methods',function(){
+      myBst = new Bst();
+      expect(myBst.insert).to.be.a('function');
+      expect(myBst.match).to.be.a('function');
+      expect(myBst).to.not.have.keys('insert','match');
+    });
+
+  });
+
+  describe('Bst.insert',function(){
     it('accepts input',function(){
       myBst = new Bst(5);
       expect(myBst.val).to.equal(5);
