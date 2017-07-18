@@ -7,19 +7,19 @@ export default class Bst {
   }
 
   insert(val){
-    if(val === this.val) return val;
+    if(val === this.val) return this;
     else if(val < this.val){
       if(this.left) return this.left.insert(val);
       else {
         this.left = new Bst(val);
-        return val;
+        return this.left;
       }
     }
     else if(val > this.val){
       if(this.right) this.right.insert(val);
       else {
         this.right = new Bst(val);
-        return val;
+        return this.right;
       }
     }
     else throw 'Bst.insert: unexpected value: ' + val;
@@ -28,12 +28,10 @@ export default class Bst {
   match(val){
     if(val === this.val) return this;
     else if(val < this.val){
-      if(this.left) return this.left.match(val);
-      else return null;
+      return this.left ? this.left.match(val) : null;
     }
     else if(val > this.val){
-      if(this.right) return this.right.match(val);
-      else return null;
+      return this.right ? this.right.match(val) : null;
     }
     else throw 'Bst.match: unexpected value: ' + val;
   }

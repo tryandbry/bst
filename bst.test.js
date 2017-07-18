@@ -23,13 +23,13 @@ describe('binary search tree',function(){
     it('accepts input',function(){
       myBst = new Bst(5);
       expect(myBst.val).to.equal(5);
-      myBst.insert(3);
+      expect(myBst.insert(3)).to.be.an.instanceOf(Bst);
       expect(myBst.left.val).to.equal(3);
-      myBst.insert(8);
+      expect(myBst.insert(8)).to.be.an.instanceOf(Bst);
       expect(myBst.right.val).to.equal(8);
-      myBst.insert(1);
+      expect(myBst.insert(1)).to.be.an.instanceOf(Bst);
       expect(myBst.left.left.val).to.equal(1);
-      myBst.insert(2);
+      expect(myBst.insert(2).val).to.equal(2);
       expect(myBst.left.left.right.val).to.equal(2);
     });
 
